@@ -1,0 +1,3 @@
+*.excalidraw
+node_modules
+*.env
