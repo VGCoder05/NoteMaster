@@ -1,3 +1,4 @@
 *.excalidraw
 node_modules
 *.env
+/Extra

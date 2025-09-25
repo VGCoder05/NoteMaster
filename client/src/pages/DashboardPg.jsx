@@ -3,6 +3,7 @@ import RecentActivity from "../components/Dashboard/RecentActivity";
 import Tags from "../components/common/Tags";
 import UpcomingDeadlines from "../components/Dashboard/UpcomingDeadlines";
 import Button from "../components/common/Button";
+import { Link } from "react-router-dom";
 
 function DashboardPg() {
   const stats = [
@@ -40,9 +41,11 @@ function DashboardPg() {
           <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <h2 className="text-3xl font-bold">Welcome back, Amelia</h2>
             <div className="flex gap-2">
-              <Button variant="secondary" icon="add">
-                New Note
-              </Button>
+              <Link to="noteEditor">
+                <Button variant="secondary" icon="add">
+                  New Note
+                </Button>
+              </Link>
               <Button variant="primary" icon="add_task">
                 New Task
               </Button>

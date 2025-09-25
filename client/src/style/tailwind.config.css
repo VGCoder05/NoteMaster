@@ -57,3 +57,7 @@
     var(--color-border-dark)
   );
 }
+
+
+/* To toggle dark mode */
+@custom-variant dark (&:is(.dark *));

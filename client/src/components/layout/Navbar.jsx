@@ -7,7 +7,7 @@ function Navbar() {
   const navLinks = [
     { name: 'Dashboard', href: '' },
     { name: 'Notes', href: 'notes' },
-    { name: 'Tasks', href: '#' },
+    { name: 'Tasks', href: 'noteEditor' },
     { name: 'Calendar', href: '#' },
   ];
 
