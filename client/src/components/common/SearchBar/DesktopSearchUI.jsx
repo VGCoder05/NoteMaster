@@ -7,9 +7,10 @@ function SearchBarUI({
   isFocused,
   placeholder,
   showClear,
+  hidden
 }) {
   return (
-    <div className="relative flex-1 hidden md:block ">
+    <div className={`relative flex-1 ${hidden ? "hidden" : ""} md:block w-full`}>
       <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-subtle-light dark:text-subtle-dark">
         search
       </span>
@@ -19,11 +20,10 @@ function SearchBarUI({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
-        className={`h-10 w-full rounded-lg text-subtle-light dark:text-subtle-dark border bg-surface-light dark:bg-surface-dark pl-10 pr-4 text-sm focus:outline-none focus:ring-1 transition-colors ${
-          isFocused
+        className={`h-10 w-full rounded-lg text-subtle-light dark:text-subtle-dark border bg-surface-light dark:bg-surface-dark pl-10 pr-4 text-sm focus:outline-none focus:ring-1 transition-colors ${isFocused
             ? "border-primary focus:ring-primary"
             : "border-border-light dark:border-border-dark"
-        }`}
+          }`}
         placeholder={placeholder}
       />
       {showClear && (

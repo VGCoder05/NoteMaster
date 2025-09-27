@@ -46,9 +46,12 @@ function DashboardPg() {
                   New Note
                 </Button>
               </Link>
-              <Button variant="primary" icon="add_task">
-                New Task
-              </Button>
+
+              <Link to="taskEditor">
+                <Button variant="primary" icon="add_task">
+                  New Task
+                </Button>
+              </Link>
             </div>
           </div>
 

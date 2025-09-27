@@ -1,4 +1,4 @@
-import SearchBar from "../../components/common/SearchBar/SearchBarLogic";
+import SearchBar from "../../components/common/SearchBar/DesktopSearchLogic";
 import FilterSort from "../../components/common/FilterSort/FilterSortLogic";
 import NoteCard from "../../components/NoteDisplay/NoteCard/NoteCardLogic";
 import Button from "../../components/common/Button";
@@ -20,8 +20,8 @@ function NotesPageUI({
       <main className="flex-1 px-4 py-8 md:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-            <h2 className="text-3xl font-bold">
-              All Notes <span>({notes.length})</span>
+            <h2 className=" text-subtle-light dark:text-subtle-dark text-3xl font-bold">
+              All Notes <span className="ml-2 text-lg text-subtle-light dark:text-subtle-dark">({notes.length})</span>
             </h2>
             <Button variant="primary" icon="add" onClick={onNewNote}>
               New Note

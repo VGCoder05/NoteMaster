@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import SearchBarUI from "./SearchBarUI";
+import DesktopSearchUI from "./DesktopSearchUI";
 
-function SearchBar({ value="", onChange, placeholder = "Search..." }) {
+function DesktopSearchLogic({ value="", onChange, placeholder = "Search...", hidden }) {
   const [isFocused, setIsFocused] = useState(false);
   const [localValue, setLocalValue] = useState(value);
 
@@ -29,7 +29,7 @@ function SearchBar({ value="", onChange, placeholder = "Search..." }) {
   };
 
   return (
-    <SearchBarUI
+    <DesktopSearchUI
       value={localValue}
       onChange={handleChange}
       onFocus={handleFocus}
@@ -38,8 +38,9 @@ function SearchBar({ value="", onChange, placeholder = "Search..." }) {
       isFocused={isFocused}
       placeholder={placeholder}
       showClear={localValue.length > 0}
+      hidden={hidden}
     />
   );
 }
 
-export default SearchBar;
+export default DesktopSearchLogic;
