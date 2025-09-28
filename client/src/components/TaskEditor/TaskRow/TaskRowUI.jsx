@@ -19,7 +19,7 @@ function TaskRowUI({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <td className="px-6 py-4">
+      <td className="px-3 md:px-6 py-4">
         <input
           className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
           type="checkbox"
@@ -29,14 +29,14 @@ function TaskRowUI({
         />
       </td>
       
-      <td className={`px-6 py-4 font-medium ${task.completed ? 'line-through' : ''}`}>
-        <div className="flex items-center gap-2">
+      <td className={`px-3 md:px-6 py-4 font-medium ${task.completed ? 'line-through' : ''}`}>
+        <div className=" w-full flex items-center justify-between gap-2">
+          <span>{task.name}</span>
           {task.completed && (
             <span className="material-symbols-outlined text-green-500 text-sm">
               check_circle
             </span>
           )}
-          <span>{task.name}</span>
           {isOverdue && (
             <span className="material-symbols-outlined text-red-500 text-sm" title="Overdue">
               warning
@@ -45,34 +45,24 @@ function TaskRowUI({
         </div>
       </td>
       
-      <td className="hidden px-6 py-4 sm:table-cell">
+      <td className="hidden px-3 md:px-6 py-4 sm:table-cell">
         <span className={`rounded-full px-3 py-1 text-xs font-medium ${statusColors[task.statusColor]}`}>
           {task.status}
         </span>
       </td>
       
-      <td className="hidden px-6 py-4 md:table-cell">
+      <td className="hidden px-3 md:px-6 py-4 md:table-cell">
         <span className={`rounded-full px-3 py-1 text-xs font-medium ${statusColors[task.priorityColor]}`}>
           {task.priority}
         </span>
       </td>
       
-      <td className={`hidden px-6 py-4 lg:table-cell ${isOverdue ? 'text-red-500 font-medium' : 'text-subtle-light dark:text-subtle-dark'}`}>
+      <td className={`hidden px-3 md:px-6 py-4 lg:table-cell ${isOverdue ? 'text-red-500 font-medium' : 'text-subtle-light dark:text-subtle-dark'}`}>
         {formattedDueDate}
       </td>
       
-      <td className="px-6 py-4 text-right">
+      <td className="px-3 md:px-6 py-4 text-right">
         <div className={`flex justify-end gap-1 transition-opacity ${isHovered ? 'opacity-100' : 'opacity-70'}`}>
-          {!task.completed && (
-            <button 
-              onClick={() => onAction('complete')}
-              className="p-1 hover:text-green-500 transition-colors"
-              aria-label="Mark as complete"
-              title="Mark as complete"
-            >
-              <span className="material-symbols-outlined text-base">check_circle</span>
-            </button>
-          )}
           
           <button 
             onClick={() => onAction('edit')}

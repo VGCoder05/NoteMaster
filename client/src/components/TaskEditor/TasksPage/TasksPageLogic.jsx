@@ -79,7 +79,8 @@ function TasksPage() {
   }, [tasks, searchQuery, filters]);
 
   const handleNewTask = () => {
-    window.location.href = '/tasks/new';
+        console.log("Create new task");
+
   };
 
   const handleBulkComplete = () => {

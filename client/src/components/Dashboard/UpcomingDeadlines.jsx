@@ -48,8 +48,8 @@ function UpcomingDeadlines() {
                 <td className="px-6 py-4 text-subtle-light dark:text-subtle-dark">
                   {deadline.dueDate}
                 </td>
-                <td className="px-6 py-4">
-                  <span className={`rounded-full px-3 py-1 text-xs font-medium ${statusColors[deadline.statusColor]}`}>
+                <td className="px-6 py-4 flex">
+                  <span className={`rounded-full  px-3 py-1 text-xs font-medium ${statusColors[deadline.statusColor]}`}>
                     {deadline.status}
                   </span>
                 </td>

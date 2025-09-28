@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export const LinkUI = ({ navLinks, currentPath, onCloseMenu = "" }) => {
-console.log("currentPath: ", currentPath);
 
   return (
     <>
@@ -32,30 +31,20 @@ console.log("currentPath: ", currentPath);
   );
 };
 
-const NavLinkUI = ({ navLinks, currentPath, onCloseMenu }) => {
+const NavLinkUI = ({ navLinks, currentPath, onCloseMenu, layoutType }) => {
+  const navClasses =
+    layoutType === "sidebar"
+      ? "flex flex-col gap-3"
+      : "hidden md:flex items-center gap-6"; // navbar default
 
   return (
-    <>
-      {false ? (
-        // For small screen
-        <nav className="flex flex-col gap-3">
-          <LinkUI
-            navLinks={navLinks}
-            currentPath={currentPath}
-            onCloseMenu={onCloseMenu}
-          />
-        </nav>
-      ) : (
-        // For large screen
-        <nav className="hidden md:flex items-center gap-6">
-          <LinkUI
-            navLinks={navLinks}
-            currentPath={currentPath}
-            onCloseMenu={onCloseMenu}
-          />
-        </nav>
-      )}
-    </>
+    <nav className={navClasses}>
+      <LinkUI
+        navLinks={navLinks}
+        currentPath={currentPath}
+        onCloseMenu={onCloseMenu}
+      />
+    </nav>
   );
 };
 

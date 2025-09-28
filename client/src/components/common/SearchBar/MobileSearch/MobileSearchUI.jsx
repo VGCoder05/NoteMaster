@@ -1,3 +1,5 @@
+import { createPortal } from "react-dom";
+
 function MobileSearchUI({
   value,
   recentSearches,
@@ -10,13 +12,13 @@ function MobileSearchUI({
   onKeyDown,
   onClose
 }) {
-  return (
-    <div className="fixed inset-0 z-50 bg-surface-light dark:bg-surface-dark sm:hidden">
+  return createPortal(
+    <div className="w-full fixed inset-0 z-100 bg-surface-light dark:bg-surface-dark md:hidden">
       {/* Header */}
-      <div className="flex items-center gap-4 p-4 border-b border-border-light dark:border-border-dark">
+      <div className="flex items-center gap-4 p-4 border-b border-border-light dark:border-border-dark ">
         <button 
           onClick={onClose}
-          className="p-1 hover:bg-primary/10 rounded-lg transition-colors"
+          className="p-1 hover:bg-primary/10 rounded-lg transition-colors dark:text-subtle-dark"
         >
           <span className="material-symbols-outlined">arrow_back</span>
         </button>
@@ -43,7 +45,6 @@ function MobileSearchUI({
           )}
         </div>
       </div>
-      
       {/* Content */}
       <div className="p-4">
         {!value && recentSearches.length > 0 && (
@@ -104,7 +105,9 @@ function MobileSearchUI({
           </div>
         )}
       </div>
-    </div>
+    </div>,
+
+    document.body
   );
 }
 

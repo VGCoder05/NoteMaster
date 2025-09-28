@@ -2,6 +2,7 @@ import SearchBar from '../../common/SearchBar/DesktopSearchLogic';
 import Button from "../../common/Button";
 import TasksTable from '../TasksTable/TasksTableLogic';
 import TaskFilters from '../TaskFilters/TaskFiltersLogic';
+import { Link } from 'react-router-dom';
 
 function TasksPageUI({
   searchQuery,
@@ -23,16 +24,19 @@ function TasksPageUI({
       
       <main className="flex-1 px-4 py-8 md:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+          <div className="mb-8 flex items-start justify-between gap-4 md:flex-row md:items-center">
             <h2 className="text-3xl font-bold">
               All Tasks
               <span className="ml-2 text-lg text-subtle-light dark:text-subtle-dark">
                 ({filteredTasks.length})
               </span>
             </h2>
-            <Button variant="primary" icon="add_task" onClick={onNewTask}>
-              New Task
-            </Button>
+            
+            <Link to="/taskEditor">
+              <Button variant="primary" icon="add_task" onClick={onNewTask}>
+                New Task
+              </Button>
+            </Link>
           </div>
 
           <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -44,7 +48,7 @@ function TasksPageUI({
               />
             </div>
             
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between gap-2">
               <Button 
                 variant="secondary" 
                 icon="filter_list"

@@ -100,17 +100,22 @@ function NoteEditor() {
 
   return (
     <NoteEditorUI
-      isEditing={isEditing}
-      noteData={noteData}
-      isSaving={isSaving}
-      hasUnsavedChanges={hasUnsavedChanges}
-      onSave={handleSave}
-      onCancel={handleCancel}
-      onTitleChange={handleTitleChange}
-      onContentChange={handleContentChange}
-      onTagsChange={handleTagsChange}
-      onReminderChange={handleReminderChange}
-      onBackToNotes={handleBackToNotes}
+      // UI mode and state flags
+      isEditing={isEditing}                     // (state) A boolean to conditionally render UI elements (e.g., page title).
+      isSaving={isSaving}                       // (state) A boolean to show a loading state on buttons.
+      hasUnsavedChanges={hasUnsavedChanges}     // (state) A boolean to show an "unsaved changes" indicator.
+
+      // Data to be displayed in the form fields
+      noteData={noteData}                       // (data) The complete note object containing title, content, tags, etc.
+
+      // Event handlers to connect UI actions to this component's logic
+      onSave={handleSave}                       // (handler) Function to call when the primary "Save" button is clicked.
+      onCancel={handleCancel}                   // (handler) Function to call when the "Cancel" button is clicked.
+      onTitleChange={handleTitleChange}         // (handler) Function to update the title state on input change.
+      onContentChange={handleContentChange}     // (handler) Function to update content from the rich text editor.
+      onTagsChange={handleTagsChange}           // (handler) Function to update tags from the tag input component.
+      onReminderChange={handleReminderChange}   // (handler) Function to update the reminder date/time.
+      onBackToNotes={handleBackToNotes}         // (handler) Function for the "Back to Notes" link.
     />
   );
 }

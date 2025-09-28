@@ -60,17 +60,24 @@ function TasksPage() {
 
   return (
     <TasksPageUI
-      selectedTasks={selectedTasks}
-      setSelectedTasks={setSelectedTasks}
-      showFilter={showFilter}
-      setShowFilter={setShowFilter}
-      showSort={showSort}
-      setShowSort={setShowSort}
-      filters={filters}
-      setFilters={setFilters}
-      sortBy={sortBy}
-      setSortBy={setSortBy}
-      filteredAndSortedTasks={filteredAndSortedTasks}
+      // Data to be rendered
+      filteredAndSortedTasks={filteredAndSortedTasks} // (data) The final, processed array of tasks to display.
+
+      // UI state for modals and selections
+      selectedTasks={selectedTasks}       // (state) An array of IDs for the currently selected tasks.
+      showFilter={showFilter}             // (state) A boolean to control the visibility of the FilterModal.
+      showSort={showSort}                 // (state) A boolean to control the visibility of the SortModal.
+
+      // State setters to allow child components to modify state
+      setSelectedTasks={setSelectedTasks} // (setter) The function to update the list of selected tasks.
+      setShowFilter={setShowFilter}       // (setter) The function to open or close the FilterModal.
+      setShowSort={setShowSort}           // (setter) The function to open or close the SortModal.
+
+      // Filter and sort state objects and their setters
+      filters={filters}                   // (state) The current filter criteria object.
+      setFilters={setFilters}             // (setter) The function to update the filter criteria.
+      sortBy={sortBy}                     // (state) The current sort criteria object.
+      setSortBy={setSortBy}               // (setter) The function to update the sort criteria.
     />
   );
 }

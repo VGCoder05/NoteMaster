@@ -4,17 +4,22 @@ import NoteMetadata from "../../components/NoteEditor/NoteMetadata/NoteMetadataL
 import Button from "../../components/common/Button";
 
 function NoteEditorUI({
-  isEditing,
-  noteData,
-  isSaving,
-  hasUnsavedChanges,
-  onSave,
-  onCancel,
-  onTitleChange,
-  onContentChange,
-  onTagsChange,
-  onReminderChange,
-  onBackToNotes,
+  // UI mode and state flags
+  isEditing,          // (state) Used to adjust UI text or elements (e.g., "Edit Note" vs "New Note").
+  isSaving,           // (state) Used to show loading indicators and disable buttons during save.
+  hasUnsavedChanges,  // (state) Used to display a visual indicator that the form is dirty.
+
+  // Data for form fields
+  noteData,           // (data) The object containing all note details to populate the inputs.
+
+  // Event handlers for user interactions
+  onSave,             // (handler) Attached to the onClick of the main "Save" button.
+  onCancel,           // (handler) Attached to the onClick of the "Cancel" button.
+  onTitleChange,      // (handler) Attached to the onChange of the title input field.
+  onContentChange,    // (handler) Passed down to the RichTextEditor component's onChange prop.
+  onTagsChange,       // (handler) Passed down to the TagInput component's onChange prop.
+  onReminderChange,   // (handler) Attached to the onChange of the reminder input field.
+  onBackToNotes,      // (handler) Attached to the onClick of the "Back to Notes" link.
 }) {
   return (
     <div className="flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
@@ -85,8 +90,8 @@ function NoteEditorUI({
                     Content
                   </label>
                   <RichTextEditor
-                    content={noteData.content}
-                    onChange={onContentChange}
+                    content={noteData.content} // (data) The HTML content for the editor to display.
+                    onChange={onContentChange} // (handler) The callback to run when the editor's content changes.
                   />
                 </div>
               </div>
@@ -98,7 +103,10 @@ function NoteEditorUI({
                 <h3 className="text-lg font-semibold mb-4">Note Details</h3>
                 <div className="space-y-4">
                   {/* Tags */}
-                  <TagInput tags={noteData.tags} onChange={onTagsChange} />
+                  <TagInput
+                  tags={noteData.tags}   // (data) The array of tags for the component to display.
+                  onChange={onTagsChange} // (handler) The callback to run when tags are added or removed.
+                  />
 
                   {/* Reminder */}
                   <div>
@@ -124,8 +132,8 @@ function NoteEditorUI({
 
                   {/* Metadata */}
                   <NoteMetadata
-                    created={noteData.created}
-                    lastModified={noteData.lastModified}
+                  created={noteData.created}         // (data) The creation date string.
+                  lastModified={noteData.lastModified} // (data) The last modified timestamp string.
                   />
 
                   {/* Version History */}

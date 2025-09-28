@@ -5,16 +5,21 @@ import Subtasks from "../../components/TaskEditor/Subtasks/SubtasksLogic";
 import TaskStatusDetails from "../../components/TaskEditor/TaskStatusDetails/TaskStatusDetailsLogic";
 
 function TaskEditorUI({
-  isEditing,
-  taskData,
-  isSaving,
-  hasUnsavedChanges,
-  progress,
-  completedSubtasks,
-  totalSubtasks,
-  onSave,
-  onCancel,
-  onUpdateTaskData,
+  // UI state and mode flags
+  isEditing,          // (state) Used to change the main title (e.g., "Edit Task").
+  isSaving,           // (state) Controls the loading/disabled state of action buttons.
+  hasUnsavedChanges,  // (state) Toggles the visibility of the "Unsaved changes" badge.
+
+  // Data for display
+  taskData,           // (data) The core object whose properties populate all form inputs.
+  progress,           // (data) The percentage value passed directly to the ProgressBar component.
+  completedSubtasks,  // (data) A number used in the progress description text.
+  totalSubtasks,      // (data) A number used in the progress description text.
+
+  // Event handlers for user interactions
+  onSave,             // (handler) Attached to the onClick event of the primary "Save" button.
+  onCancel,           // (handler) Attached to the onClick event of "Cancel" and "Back" buttons.
+  onUpdateTaskData,   // (handler) A generic callback passed to various inputs and child components.
 }) {
   return (
     <div className="flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
@@ -104,16 +109,14 @@ function TaskEditorUI({
 
               {/* Subtasks */}
               <Subtasks
-                subtasks={taskData.subtasks}
-                onChange={(subtasks) => onUpdateTaskData("subtasks", subtasks)}
+                subtasks={taskData.subtasks} // (data) The initial array of subtasks to render.
+                onChange={(newSubtasks) => onUpdateTaskData("subtasks", newSubtasks)} // (handler) Callback to update the parent's state with the modified subtasks array.
               />
 
               {/* Attachments */}
               <Attachments
-                attachments={taskData.attachments}
-                onChange={(attachments) =>
-                  onUpdateTaskData("attachments", attachments)
-                }
+                attachments={taskData.attachments} // (data) The array of attachments to display.
+                onChange={(newAttachments) => onUpdateTaskData("attachments", newAttachments)} // (handler) Callback to update the parent's state with the new attachments list.
               />
             </div>
 
@@ -121,16 +124,12 @@ function TaskEditorUI({
             <div className="space-y-6">
               {/* Status & Details */}
               <TaskStatusDetails
-                dueDate={taskData.dueDate}
-                priority={taskData.priority}
-                assignee={taskData.assignee}
-                onDueDateChange={(date) => onUpdateTaskData("dueDate", date)}
-                onPriorityChange={(priority) =>
-                  onUpdateTaskData("priority", priority)
-                }
-                onAssigneeChange={(assignee) =>
-                  onUpdateTaskData("assignee", assignee)
-                }
+                dueDate={taskData.dueDate}   // (data) The current due date value.
+                priority={taskData.priority} // (data) The current priority value.
+                assignee={taskData.assignee} // (data) The current assignee value.
+                onDueDateChange={(date) => onUpdateTaskData("dueDate", date)}       // (handler) A specific callback for due date changes.
+                onPriorityChange={(priority) => onUpdateTaskData("priority", priority)} // (handler) A specific callback for priority changes.
+                onAssigneeChange={(assignee) => onUpdateTaskData("assignee", assignee)} // (handler) A specific callback for assignee changes.
               />
 
               {/* Progress */}

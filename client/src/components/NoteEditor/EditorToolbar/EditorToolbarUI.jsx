@@ -1,5 +1,4 @@
 function EditorToolbarUI({ tools, onToolClick, isCommandActive }) {
-  console.log("isCommandActive", isCommandActive);
   return (
     <div className="flex items-center gap-2 border-b border-border-light dark:border-border-dark p-2">
       {tools.map((tool, index) => {

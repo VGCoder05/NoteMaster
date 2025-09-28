@@ -65,16 +65,18 @@ function NavbarLogic() {
 
   return (
     <NavbarUI
-      // For Dark mode
-      isDarkMode={isDarkMode}
-      onToggleDarkMode={toggleDarkMode}
-      // For sidebar
-      isMenuOpen={isMenuOpen}
-      onToggleMenu={toggleMenu}
-      // For navlinks & there styling
-      currentPath={currentPath}
-      navLinks={navLinks}
-      onCloseMenu={closeMenu}
+      // For Dark mode functionality
+      isDarkMode={isDarkMode} // (state) The current theme state (true for dark, false for light).
+      onToggleDarkMode={toggleDarkMode} // (handler) The function to call when the theme toggle is clicked.
+
+      // For mobile sidebar/menu functionality
+      isMenuOpen={isMenuOpen} // (state) The current visibility state of the mobile menu.
+      onToggleMenu={toggleMenu} // (handler) The function to call to open/close the mobile menu.
+      onCloseMenu={closeMenu} // (handler) The function to call to explicitly close the menu.
+
+      // For navlinks and their active styling
+      currentPath={currentPath} // (state) The current URL path to highlight the active link.
+      navLinks={navLinks} // (data) The array of navigation link objects to be rendered.
     />
   );
 }

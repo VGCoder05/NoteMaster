@@ -84,16 +84,21 @@ function TaskEditor() {
 
   return (
     <TaskEditorUI
-      isEditing={isEditing}
-      taskData={taskData}
-      isSaving={isSaving}
-      hasUnsavedChanges={hasUnsavedChanges}
-      progress={progress}
-      completedSubtasks={completedSubtasks}
-      totalSubtasks={totalSubtasks}
-      onSave={handleSave}
-      onCancel={handleCancel}
-      onUpdateTaskData={updateTaskData}
+      // UI state and mode flags
+      isEditing={isEditing}                 // (state) A boolean to conditionally render UI (e.g., page title).
+      isSaving={isSaving}                   // (state) A boolean to show a loading state on the save button.
+      hasUnsavedChanges={hasUnsavedChanges} // (state) A boolean to display an "unsaved changes" indicator.
+
+      // Data for display
+      taskData={taskData}                   // (data) The complete task object to populate all form fields.
+      progress={progress}                   // (data) The calculated progress percentage for the progress bar.
+      completedSubtasks={completedSubtasks} // (data) The count of completed subtasks for display text.
+      totalSubtasks={totalSubtasks}         // (data) The total count of subtasks for display text.
+
+      // Event handlers for UI interactions
+      onSave={handleSave}                   // (handler) The function to call when the "Save Task" button is clicked.
+      onCancel={handleCancel}               // (handler) The function for the "Cancel" and "Back" buttons.
+      onUpdateTaskData={updateTaskData}     // (handler) A generic function for child components to update any part of the task data.
     />
   );
 }

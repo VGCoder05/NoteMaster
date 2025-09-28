@@ -20,7 +20,7 @@ function SearchBarUI() {
       {/* Mobile Search Button */}
       <button
         onClick={setShowMobileSearch}
-        className="md:hidden flex h-9 w-9 items-center justify-center rounded-lg hover:bg-primary/10 transition-colors "
+        className="md:hidden flex  items-center justify-center rounded-lg hover:bg-primary/10 transition-colors dark:text-subtle-dark "
         aria-label="Search"
       >
         <span className="material-symbols-outlined text-base">
