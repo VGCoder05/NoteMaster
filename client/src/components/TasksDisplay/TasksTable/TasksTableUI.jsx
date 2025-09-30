@@ -17,9 +17,9 @@ function TasksTableUI({
     <div className="overflow-hidden rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark">
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
-          <thead className="bg-[#eaeaea] dark:bg-[#615e5e] border-b border-border-light dark:border-border-dark">
+          <thead className="bg-[#eaeaea] dark:bg-[#615e5e] [&>th]px-6 [&>th]py-4 border-b border-border-light dark:border-border-dark">
             <tr>
-              <th className="px-6 py-4 font-medium">
+              <th className="font-medium">
                 <input
                   className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                   type="checkbox"
@@ -28,11 +28,11 @@ function TasksTableUI({
                   aria-label="Select all tasks"
                 />
               </th>
-              <th className="px-6 py-4 font-medium">Task Name</th>
-              <th className="hidden px-6 py-4 font-medium sm:table-cell">Status</th>
-              <th className="hidden px-6 py-4 font-medium md:table-cell">Priority</th>
-              <th className="hidden px-6 py-4 font-medium lg:table-cell">Due Date</th>
-              <th className="px-6 py-4 font-medium text-right">Actions</th>
+              <th className="font-medium">Task Name</th>
+              <th className="hidden font-medium sm:table-cell">Status</th>
+              <th className="hidden font-medium md:table-cell">Priority</th>
+              <th className="hidden font-medium lg:table-cell">Due Date</th>
+              <th className="font-medium text-right">Actions</th>
             </tr>
           </thead>
           <tbody>

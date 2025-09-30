@@ -15,13 +15,13 @@ function TaskRowUI({
 }) {
   return (
     <tr
-      className={`border-b border-border-light dark:border-border-dark hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors ${
+      className={`[&>td]px-6 [&>td]py-4 border-b border-border-light dark:border-border-dark hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors ${
         task.completed ? 'opacity-60' : ''
       } ${isSelected ? 'bg-primary/10 dark:bg-primary/20' : ''}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <td className="px-6 py-4">
+      <td className="">
         <input
           className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
           type="checkbox"
@@ -31,7 +31,7 @@ function TaskRowUI({
         />
       </td>
       
-      <td className={`px-6 py-4 font-medium ${task.completed ? 'line-through' : ''}`}>
+      <td className={` font-medium ${task.completed ? 'line-through' : ''}`}>
         <div className="flex items-center gap-2">
           {task.completed && (
             <span className="material-symbols-outlined text-green-500 text-sm">
@@ -47,23 +47,23 @@ function TaskRowUI({
         </div>
       </td>
       
-      <td className="hidden px-6 py-4 sm:table-cell">
+      <td className="hidden  sm:table-cell">
         <span className={`rounded-full px-3 py-1 text-xs font-medium ${statusColors[task.statusColor]}`}>
           {task.status}
         </span>
       </td>
       
-      <td className="hidden px-6 py-4 md:table-cell">
+      <td className="hidden  md:table-cell">
         <span className={`rounded-full px-3 py-1 text-xs font-medium ${statusColors[task.priorityColor]}`}>
           {task.priority}
         </span>
       </td>
       
-      <td className={`hidden px-6 py-4 lg:table-cell ${isOverdue ? 'text-red-500' : 'text-subtle-light dark:text-subtle-dark'}`}>
+      <td className={`hidden  lg:table-cell ${isOverdue ? 'text-red-500' : 'text-subtle-light dark:text-subtle-dark'}`}>
         {formattedDate}
       </td>
       
-      <td className="px-6 py-4 text-right">
+      <td className=" text-right">
         <div className={`flex justify-end gap-1 transition-opacity ${isHovered ? 'opacity-100' : 'opacity-70'}`}>
           {!task.completed && (
             <button 
